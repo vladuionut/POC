@@ -1,9 +1,70 @@
 {
-  "phase1":{
-  "QUE_ID_1":{
-   "questionPart":{"displayText":"test"}
-  },
-  "VAR_ID_1234":true
-  
-  }
+    "phase1": {
+        "QUE_ID_1": {
+            "questionPart": {
+                "displayText": "Question Display Text Phase11"
+            }
+        },
+		"BUTTON_1":{
+		"buttonText":"Navigate to next phase",
+		"actionType":"navigate",
+		"actionValue":"phase2"
+		},
+        "VAR_ID_1234": true,
+        "WIDGET_Charts_1": {
+            "barChartOptions": {
+                "scaleShowVerticalLines": false,
+                "responsive": true
+            },
+            "barChartLabels": [
+                "2006",
+                "2007",
+                "2008",
+                "2009",
+                "2010",
+                "2011",
+                "2012"
+            ],
+            "barChartType": "bar",
+            "barChartLegend": true,
+            "barChartData": [
+                {
+                    "data": [
+                        65,
+                        25,
+                        80,
+                        81,
+                        56,
+                        55,
+                        40
+                    ],
+                    "label": "Series A"
+                },
+                {
+                    "data": [
+                        28,
+                        48,
+                        40,
+                        19,
+                        86,
+                        27,
+                        90
+                    ],
+                    "label": "Series B"
+                }
+            ]
+        }
+    },
+	  "phase2": {
+	  "BUTTON_1":{
+		"buttonText":"Navigate to previous phase",
+		"actionType":"navigate",
+		"actionValue":"phase1"
+		},
+	   "QUE_ID_22": {
+            "questionPart": {
+                "displayText": "Question Display Text Phase2"
+            }
+        }
+	  }
 }

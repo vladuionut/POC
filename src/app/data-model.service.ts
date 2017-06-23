@@ -6,9 +6,14 @@ export class DataModelService {
 
   constructor(private http: Http) { }
 
-  getDataFromServer(phase : String) { 
+  getDataFromServer(phase: String) {
     return this.http
       .get('http://localhost:3000/' + phase)
       .map(response => response.json());
+  }
+  getCurrentPhaseTemplate(phaseid: String) {
+    return this.http
+      .get('http://localhost:3000/' + phaseid + '_tpl.html')
+      .map(response => response.text());
   }
 }

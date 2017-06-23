@@ -8,4 +8,8 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+import { COMPILER_PROVIDERS } from '@angular/compiler';
+
+platformBrowserDynamic([...COMPILER_PROVIDERS]).bootstrapModule(AppModule)
+
+//platformBrowserDynamic().bootstrapModule(AppModule);

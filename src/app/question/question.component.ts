@@ -26,10 +26,9 @@ export class QuestionComponent implements OnInit {
     this.viewContainerRef.createComponent(AnswerPartComponentFactory);
 
     let componentRef = this.viewContainerRef.createComponent(QuestionPartComponentFactory);
-  //  this.compData = Object.assign(new Question(), {questionPart:{displayText:"test"}});
-    console.log(this.compData);
-    debugger;
-    Object.assign(componentRef.instance,{compData : this.compData.questionPart});
+
+    Object.assign(componentRef.instance,{compData : this.compData ? this.compData.questionPart:""});
+
 
   }
 
