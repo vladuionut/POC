@@ -8,12 +8,12 @@ export class DataModelService {
 
   getDataFromServer(phase: String) {
     return this.http
-      .get('http://localhost:3000/' + phase)
+      .get(`http://localhost:3000/${phase}`)
       .map(response => response.json());
   }
   getCurrentPhaseTemplate(phaseid: String) {
     return this.http
-      .get('http://localhost:3000/' + phaseid + '_tpl.html')
+      .get(`http://localhost:3000/${phaseid}_tpl.html`)
       .map(response => response.text());
   }
 }
