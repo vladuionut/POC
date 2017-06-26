@@ -2,16 +2,15 @@
  <div class="container" *ngIf="getDataFor('VAR_ID_1234')">
     <h1>StaticText {{ getDataFor('VAR_ID_123123')}}</h1>
     <div class="row">
-      <Question [compData]="getDataFor('QUE_ID_1')"></Question>
+	  <Question [compData]="getDataFor('QUE_ID_1')"></Question>
+	  <br>
+      <Question [compData]="getDataFor('QUE_ID_2')"></Question>
+	  <br>
+	    <Question [compData]="getDataFor('QUE_ID_3')"></Question>
+	  <br>
     </div>
 
 
-<internationl-calendar></internationl-calendar>
-  <br style="margin-top:20px;">
-
-  <Charts  [compData]="getDataFor('WIDGET_Charts_1')"></Charts>
   
   <app-button  [compData]="getDataFor('BUTTON_1')"></app-button>
-<button (click)="setData()">Test change detection</button>
-
   <button (click)="update()">Update</button>
