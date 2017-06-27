@@ -1,22 +1,28 @@
-import { Component, ViewChild, ViewContainerRef, Compiler, OnInit, NgModule } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef, Compiler, OnInit, NgModule ,ViewEncapsulation} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedComponentsModule } from './shared-components/shared-components.module';
 
 import { DataModelService } from './data-model.service';
 import { BroadcasterService } from './broadcaster.service';
+import { FormValidationService } from './form-validation.service';
+
+
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  encapsulation:ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
   title = 'app';
-
+  form: FormGroup;
   template: string;
   @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
 
-  constructor(private dataModelService: DataModelService, private broadcasterService: BroadcasterService, private compiler: Compiler) {
+  constructor(private dataModelService: DataModelService, private broadcasterService: BroadcasterService, private formValidationService: FormValidationService, private compiler: Compiler) {
+    this.form = this.formValidationService.getFormGroup()
     this.broadcasterService.on('navigate')
       .subscribe(data => {
         this.navigateToPhase(data);
@@ -33,7 +39,7 @@ export class AppComponent implements OnInit {
     @Component({ template: template })
     class PhaseComponent {
       localDB: any = phaseData;
-      constructor(private dataModelService: DataModelService, private broadcasterService: BroadcasterService) { }
+      constructor(private dataModelService: DataModelService, private formValidationService: FormValidationService, private broadcasterService: BroadcasterService) { }
       ngOnInit() {
         //this.update();
       }
@@ -48,7 +54,7 @@ export class AppComponent implements OnInit {
       }
       update() {
         this.dataModelService.getDataFromServer(phaseId).subscribe(data => {
-          Object.assign(this.localDB,data);
+          Object.assign(this.localDB, data);
         });
       }
     }

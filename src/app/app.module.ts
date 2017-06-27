@@ -4,15 +4,17 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { DataModelService } from './data-model.service';
 import { BroadcasterService } from './broadcaster.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormValidationService } from './form-validation.service';
 
-@NgModule({ 
+@NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,HttpModule
+    BrowserModule, HttpModule, ReactiveFormsModule
   ],
-  providers: [DataModelService,BroadcasterService],
+  providers: [DataModelService, BroadcasterService,FormValidationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

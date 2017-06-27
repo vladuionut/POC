@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+
+import { FormGroup } from '@angular/forms';
+
+import { FormValidationService } from '../../form-validation.service';
+
 
 @Component({
   selector: 'app-answer-part',
@@ -7,9 +12,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnswerPartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private formValidationService: FormValidationService) {
+    this.form = this.formValidationService.getFormGroup();
+  }
+
+  @Input() key: string;
+  form: FormGroup;
 
   ngOnInit() {
+  }
+  get control(){
+    debugger;
+    return this.form.controls[this.key];
   }
 
 }

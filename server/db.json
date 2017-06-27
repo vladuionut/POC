@@ -1,70 +1,143 @@
 {
-    "phase1": {
-        "QUE_ID_1": {
-            "questionPart": {
-                "displayText": "Question Display Text Phase11"
-            }
-        },
-		"BUTTON_1":{
-		"buttonText":"Navigate to next phase",
-		"actionType":"navigate",
-		"actionValue":"phase2"
+	"phase1": {
+		"QUE_ID_1": {
+			"key": "QUE_ID_10001",
+			"type": 1,
+			"questionPart": {
+				"displayText": "username"
+			},
+			"errorPart": {
+				"required": "Username is required.",
+				"minlength": "Username must be at least 4 characters long.",
+				"maxlength": "Username cannot be more than 24 characters long."
+			},
+			"validation": [{
+					"name": "required"
+				},
+				{
+					"name": "minLength",
+					"value": 4
+				},
+				{
+					"name": "maxLength",
+					"value": 24
+				}
+			]
 		},
-        "VAR_ID_1234": true,
-        "WIDGET_Charts_1": {
-            "barChartOptions": {
-                "scaleShowVerticalLines": false,
-                "responsive": true
-            },
-            "barChartLabels": [
-                "2006",
-                "2007",
-                "2008",
-                "2009",
-                "2010",
-                "2011",
-                "2012"
-            ],
-            "barChartType": "bar",
-            "barChartLegend": true,
-            "barChartData": [
-                {
-                    "data": [
-                        65,
-                        25,
-                        80,
-                        81,
-                        56,
-                        55,
-                        40
-                    ],
-                    "label": "Series A"
-                },
-                {
-                    "data": [
-                        28,
-                        48,
-                        40,
-                        19,
-                        86,
-                        27,
-                        90
-                    ],
-                    "label": "Series B"
-                }
-            ]
-        }
-    },
-	  "phase2": {
-	  "BUTTON_1":{
-		"buttonText":"Navigate to previous phase",
-		"actionType":"navigate",
-		"actionValue":"phase1"
+		"QUE_ID_2": {
+			"key": "QUE_ID_10002",
+			"type": 1,
+			"questionPart": {
+				"displayText": "Name"
+			},
+			"errorPart": {
+				"required": "This field is mandatory"
+			},
+			"validation": [{
+				"name": "required"
+			}]
 		},
-	   "QUE_ID_22": {
-            "questionPart": {
-                "displayText": "Question Display Text Phase2"
-            }
-        }
-	  }
+		"QUE_ID_3": {
+			"key": "QUE_ID_10003",
+			"type": 1,
+			"questionPart": {
+				"displayText": "Age"
+			},
+			"errorPart": {
+				"required": "Age is required.",
+				"minlength": "Age > 10.",
+				"maxlength": "Age < 65."
+			},
+			"validation": [{
+					"name": "required"
+				},
+				{
+					"name": "min",
+					"value": 18
+				},
+				{
+					"name": "max",
+					"value": 6
+				}
+			]
+		},
+		"BUTTON_1": {
+			"buttonText": "Navigate to next phase",
+			"actionType": "navigate",
+			"actionValue": "phase2"
+		},
+		"VAR_ID_1234": true
+	},
+	"phase2": {
+		"BUTTON_1": {
+			"buttonText": "Navigate to previous phase",
+			"actionType": "navigate",
+			"actionValue": "phase1"
+		},
+		"BUTTON_2": {
+			"buttonText": "Navigate to next phase",
+			"actionType": "navigate",
+			"actionValue": "phase3"
+		},
+		"QUE_ID_22": {
+			"questionPart": {
+				"displayText": "Question Display Text Phase2"
+			}
+		}
+	},
+	"phase3": {
+		"QUE_ID_1": {
+			"questionPart": {
+				"displayText": "Question Display Text Phase11"
+			}
+		},
+		"BUTTON_1": {
+			"buttonText": "Navigate to next phase",
+			"actionType": "navigate",
+			"actionValue": "phase2"
+		},
+		"VAR_ID_1234": true,
+		"WIDGET_Charts_1": {
+			"barChartOptions": {
+				"scaleShowVerticalLines": false,
+				"responsive": true
+			},
+			"barChartLabels": [
+				"2006",
+				"2007",
+				"2008",
+				"2009",
+				"2010",
+				"2011",
+				"2012"
+			],
+			"barChartType": "bar",
+			"barChartLegend": true,
+			"barChartData": [{
+					"data": [
+						65,
+						25,
+						80,
+						81,
+						56,
+						55,
+						40
+					],
+					"label": "Series A"
+				},
+				{
+					"data": [
+						28,
+						48,
+						40,
+						19,
+						86,
+						27,
+						90
+					],
+					"label": "Series B"
+				}
+			]
+		}
+	}
 }
