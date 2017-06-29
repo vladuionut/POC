@@ -1,11 +1,10 @@
-Phase 2 
  <div class="container">
-    <h1>Phase 2  </h1>
-    <div class="row">
-      <Question [compData]="getDataFor('QUE_ID_22')"></Question>
-    </div>
+    <h1>{{getDataFor('$$ITEM.H1$')}}</h1>
 
-  
+  <dynamic-component [compId]="'COMP_ID_1'"></dynamic-component>
+    
   <app-button  [compData]="getDataFor('BUTTON_1')"></app-button>
+  
   <app-button  [compData]="getDataFor('BUTTON_2')"></app-button>
+  
   </div>

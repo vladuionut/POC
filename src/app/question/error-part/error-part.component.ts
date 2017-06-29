@@ -35,7 +35,7 @@ export class ErrorPartComponent implements OnInit {
   }
   get isValid() {
     let control = this.form.controls[this.key];
-    if (control.errors && (control.dirty || control.touched)) {
+    if (control.errors && (control.dirty || control.touched || this.formValidationService.isSubmited )) {
       return this.form.controls[this.key].valid;
     }
     return true;

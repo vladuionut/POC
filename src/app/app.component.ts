@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewContainerRef, Compiler, OnInit, NgModule ,ViewEncapsulation} from '@angular/core';
+import { Component, ViewChild, ViewContainerRef, Compiler, OnInit, NgModule, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedComponentsModule } from './shared-components/shared-components.module';
 
@@ -13,7 +13,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  encapsulation:ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
   title = 'app';
@@ -27,11 +27,33 @@ export class AppComponent implements OnInit {
       .subscribe(data => {
         this.navigateToPhase(data);
       });
+    this.broadcasterService.on('submit')
+      .subscribe(data => {
+        this.submitForm();
+      });
+
+    this.broadcasterService.on('reset')
+      .subscribe(data => {
+        this.resetForm();
+      });
 
   }
 
   ngOnInit() {
     this.navigateToPhase("phase1");
+  }
+
+
+  submitForm() {
+    this.formValidationService.isSubmited = true;
+    if (this.form.valid) {
+      console.log("Form Submitted!", this.form.value);
+    }
+  }
+
+  resetForm() {
+    this.formValidationService.isSubmited = false;
+    this.form.reset();
   }
 
   private createPhaseComponent(template: string, phaseId, phaseData) {
@@ -74,6 +96,8 @@ export class AppComponent implements OnInit {
 
   clearData() {
     this.container.clear();
+    this.formValidationService.resetForm();
+    this.form = this.formValidationService.getFormGroup();
   }
   navigateToPhase(phaseId) {
     this.clearData();

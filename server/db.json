@@ -45,8 +45,8 @@
 			},
 			"errorPart": {
 				"required": "Age is required.",
-				"minlength": "Age > 10.",
-				"maxlength": "Age < 65."
+				"min": "Age > 10.",
+				"max": "Age < 65."
 			},
 			"validation": [{
 					"name": "required"
@@ -57,14 +57,49 @@
 				},
 				{
 					"name": "max",
-					"value": 6
+					"value": 65
 				}
 			]
+		},
+		"QUE_ID_4": {
+			"key": "QUE_ID_10004",
+			"type": 1,
+			"questionPart": {
+				"displayText": "Email"
+			},
+			"errorPart": {
+				"required": "Email is required.",
+				"email": "Invalid email format"
+			},
+			"validation": [{
+					"name": "required"
+				},
+				{
+					"name": "email"
+				}
+			]
+		},
+		"QUE_ID_5": {
+			"key": "QUE_ID_10005",
+			"type": 2,
+			"questionPart": {
+				"displayText": "Occupation"
+			}
 		},
 		"BUTTON_1": {
 			"buttonText": "Navigate to next phase",
 			"actionType": "navigate",
 			"actionValue": "phase2"
+		},
+		"BUTTON_2": {
+			"buttonText": "Submit Form",
+			"actionType": "submit",
+			"actionValue": ""
+		},
+		"BUTTON_3": {
+			"buttonText": "Reset Form",
+			"actionType": "reset",
+			"actionValue": ""
 		},
 		"VAR_ID_1234": true
 	},
@@ -79,24 +114,48 @@
 			"actionType": "navigate",
 			"actionValue": "phase3"
 		},
+		"$$ITEM.H1$":"Phase 2"
+	},
+	"phase4": {
+		"BUTTON_1": {
+			"buttonText": "Navigate to previous phase",
+			"actionType": "navigate",
+			"actionValue": "phase3"
+		},
+		"BUTTON_2": {
+			"buttonText": "Submit Form",
+			"actionType": "submit",
+			"actionValue": ""
+		},
 		"QUE_ID_22": {
+			"key": "QUE_ID_22",
+			"type": 2,
 			"questionPart": {
-				"displayText": "Question Display Text Phase2"
-			}
+				"displayText": "Test Question"
+			},
+			"errorPart": {
+				"required": "This field is required."
+				},
+			"validation": [{
+					"name": "required"
+				}
+			]
+			
+		
 		}
 	},
 	"phase3": {
-		"QUE_ID_1": {
-			"questionPart": {
-				"displayText": "Question Display Text Phase11"
-			}
-		},
 		"BUTTON_1": {
-			"buttonText": "Navigate to next phase",
+			"buttonText": "Navigate to previous phase",
 			"actionType": "navigate",
 			"actionValue": "phase2"
 		},
-		"VAR_ID_1234": true,
+		"BUTTON_2": {
+			"buttonText": "Navigate to next phase",
+			"actionType": "navigate",
+			"actionValue": "phase4"
+		},
+		"$$ITEM.MYITEM$": true,
 		"WIDGET_Charts_1": {
 			"barChartOptions": {
 				"scaleShowVerticalLines": false,
@@ -138,6 +197,20 @@
 					"label": "Series B"
 				}
 			]
+		}
+	},
+	"COMP_ID_1":{
+	"QUE_ID_1": {
+			"key": "QUE_ID_100055",
+			"type": 2,
+			"questionPart": {
+				"displayText": "Question IN Dynamic Component"
+			}
+		},
+		"BUTTON_1": {
+			"buttonText": "Navigate to phase 4",
+			"actionType": "navigate",
+			"actionValue": "phase4"
 		}
 	}
 }

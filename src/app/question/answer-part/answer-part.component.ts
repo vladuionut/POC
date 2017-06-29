@@ -22,7 +22,6 @@ export class AnswerPartComponent implements OnInit {
   ngOnInit() {
   }
   get control(){
-    debugger;
     return this.form.controls[this.key];
   }
 

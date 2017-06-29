@@ -35,7 +35,6 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit() {
     if (!(this.compData && this.compData.key)) return;
-    debugger;
     this.formValidationService.addControl(this.compData.key,this.compData.validation);
     let AnswerPartComponentFactory = this._componentFactoryResolver.resolveComponentFactory(AnswerPartComponent);
     let QuestionPartComponentFactory = this._componentFactoryResolver.resolveComponentFactory(QuestionPartComponent);
