@@ -71,12 +71,37 @@ export class AppComponent implements OnInit {
         }
         return false;
       }
-      setData() {
-        this.localDB['QUE_ID_1'].questionPart.displayText = "UPDATED THROUGH CHANGE DETECTION MECHANISM";
+      setData(){
+	  
+	  
+	    Object.assign(this.localDB, {"QUE_ID_999":{"questionPart":{"displayText":"ihi23232"}}});
+        //this.localDB['QUE_ID_999'].questionPart.displayText = "UPDATED THROUGH CHANGE DETECTION MECHANISM";
       }
       update() {
         this.dataModelService.getDataFromServer(phaseId).subscribe(data => {
-          Object.assign(this.localDB, data);
+		
+debugger;
+ var isObject =  function (item) {
+  return (item && typeof item === 'object' && !Array.isArray(item));
+}
+function mergeDeep(target, ...sources) {
+  if (!sources.length) return target;
+  const source = sources.shift();
+
+  if (isObject(target) && isObject(source)) {
+    for (const key in source) {
+      if (isObject(source[key])) {
+        if (!target[key]) Object.assign(target, { [key]: {} });
+        mergeDeep(target[key], source[key]);
+      } else {
+        Object.assign(target, { [key]: source[key] });
+      }
+    }
+  }
+  return mergeDeep(target, ...sources);
+}
+mergeDeep(this.localDB,data);
+  //Object.assign(this.localDB, data);
         });
       }
     }
