@@ -43,10 +43,8 @@ export class QuestionComponent implements OnInit {
 
 
     switch (this.compData.type) {
-
       case QuestionType.Question1:
         {
-
           let componentRef = this.container.createComponent(QuestionPartComponentFactory);
 
           Object.assign(componentRef.instance, { compData: this.compData ? this.compData.questionPart : "" });

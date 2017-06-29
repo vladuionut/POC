@@ -5,6 +5,8 @@ import { ButtonComponent } from '../components/button/button.component';
 import { QuestionComponent } from '../question/question.component';
 import { AnswerPartComponent } from '../question/answer-part/answer-part.component';
 import { ErrorPartComponent } from '../question/error-part/error-part.component';
+import {DynamicComponent} from '../components/dynamic-component/dynamic-component.component';
+
 
 import { QuestionPartComponent } from '../question/question-part/question-part.component';
 import { InternationlCalendarComponent } from '../widgets/internationl-calendar/internationl-calendar.component';
@@ -21,6 +23,7 @@ import { ReactiveFormsModule }          from '@angular/forms';
     AnswerPartComponent,
     QuestionPartComponent,
     ErrorPartComponent,
+    DynamicComponent,
     InternationlCalendarComponent,
     ButtonComponent,
     ChartsComponent],
@@ -31,6 +34,7 @@ import { ReactiveFormsModule }          from '@angular/forms';
     ErrorPartComponent,
     InternationlCalendarComponent,
     ButtonComponent,
-    ChartsComponent]
+    ChartsComponent,
+    DynamicComponent]
 })
 export class SharedComponentsModule { }

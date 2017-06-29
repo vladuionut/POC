@@ -6,15 +6,29 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Injectable()
 export class FormValidationService {
 
+  private _isSubmited: boolean = false;
+
+  get isSubmited(): boolean {
+    return this._isSubmited;
+  }
+  set isSubmited(value: boolean) {
+    this._isSubmited = value;
+  }
+  
   private formGroup: FormGroup;
   constructor() {
     this.formGroup = new FormGroup({
       firstName: new FormControl()
     });
   }
+  resetForm(){
+      this._isSubmited = false;
+        this.formGroup = new FormGroup({    });
+  }
   getFormGroup() {
     return this.formGroup;
   }
+
   addControl(id: string, validators: any) {
 
 
@@ -27,7 +41,7 @@ export class FormValidationService {
           return Validators[v.name]
         }
         return false;
-      }).filter(v => v != false );
+      }).filter(v => v != false);
 
       if (arrValidators.length) {
         if (arrValidators.length > 1) {

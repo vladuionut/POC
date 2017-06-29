@@ -1,17 +1,13 @@
 
- <div class="container" *ngIf="getDataFor('VAR_ID_1234')">
-    <h1>Not Applicable rule -> value of  VAR_ID_123123{{ getDataFor('VAR_ID_123123')}}</h1>
-    <div class="row">
-      <Question [compData]="getDataFor('QUE_ID_1')"></Question>
-    </div>
-
-
+ <div class="container" *ngIf="getDataFor('$$ITEM.MYITEM$')">
+    <h1>Not Applicable rule -> value of  $$ITEM.MYITEM$ : {{ getDataFor('$$ITEM.MYITEM$')}}</h1>
+   
 <internationl-calendar></internationl-calendar>
   <br style="margin-top:20px;">
 
   <Charts  [compData]="getDataFor('WIDGET_Charts_1')"></Charts>
+  </div>
   
   <app-button  [compData]="getDataFor('BUTTON_1')"></app-button>
-<button (click)="setData()">Test change detection</button>
-
+  <app-button  [compData]="getDataFor('BUTTON_2')"></app-button>
   <button (click)="update()">Update</button>
