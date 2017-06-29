@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, ViewChild,ViewEncapsulation } from '@angular/core';
 
 import { AnswerPartComponent } from './answer-part/answer-part.component';
 
@@ -17,25 +17,25 @@ import { QuestionType } from "./question-type.enum";
   selector: 'Question',
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.css'],
+  encapsulation: ViewEncapsulation.None,
+  styles:[`Question {
+      margin: 0 5px;
+    }`],
   entryComponents: [AnswerPartComponent, QuestionPartComponent, ErrorPartComponent]
 
 })
 export class QuestionComponent implements OnInit {
 
   constructor(private _componentFactoryResolver: ComponentFactoryResolver, private formValidationService: FormValidationService, private viewContainerRef: ViewContainerRef) {
-
-
     this.form = this.formValidationService.getFormGroup();
-
-
   }
+
   @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
   @Input() compData: Question;
   form: FormGroup;
 
   ngOnInit() {
     if (!(this.compData && this.compData.key)) return;
-    debugger;
     this.formValidationService.addControl(this.compData.key,this.compData.validation);
     let AnswerPartComponentFactory = this._componentFactoryResolver.resolveComponentFactory(AnswerPartComponent);
     let QuestionPartComponentFactory = this._componentFactoryResolver.resolveComponentFactory(QuestionPartComponent);

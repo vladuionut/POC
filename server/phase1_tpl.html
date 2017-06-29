@@ -2,15 +2,13 @@
  <div class="container" *ngIf="getDataFor('VAR_ID_1234')">
     <h1>StaticText {{ getDataFor('VAR_ID_123123')}}</h1>
     <div class="row">
-	  <Question [compData]="getDataFor('QUE_ID_1')"></Question>
-	  <br>
-      <Question [compData]="getDataFor('QUE_ID_2')"></Question>
-	  <br>
-	    <Question [compData]="getDataFor('QUE_ID_3')"></Question>
-	  <br>
+      <div class="form-group">
+        <Question [compData]="getDataFor('QUE_ID_1')"></Question>
+        <Question [compData]="getDataFor('QUE_ID_2')"></Question>
+        <Question [compData]="getDataFor('QUE_ID_3')"></Question>
     </div>
+  </div>
+</div>
 
-
-  
-  <app-button  [compData]="getDataFor('BUTTON_1')"></app-button>
-  <button (click)="update()">Update</button>
+<app-button  [compData]="getDataFor('BUTTON_1')"></app-button>
+<button (click)="update()">Update</button>
