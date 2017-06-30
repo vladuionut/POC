@@ -7,14 +7,15 @@ import { QuestionPart } from "./question-part";
   styleUrls: ['./question-part.component.css'],
   encapsulation: ViewEncapsulation.None,
   host: {
-    'class': 'col-md-2'
+    'class': `col-md-2`
   }
 })
 export class QuestionPartComponent implements OnInit {
 
   constructor() { }
   @Input() compData: QuestionPart;
+  @Input() type: any;
+  class: any;
   ngOnInit() {
   }
-
 }

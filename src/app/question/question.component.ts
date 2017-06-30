@@ -46,8 +46,7 @@ export class QuestionComponent implements OnInit {
       case QuestionType.Question1:
         {
           let componentRef = this.container.createComponent(QuestionPartComponentFactory);
-
-          Object.assign(componentRef.instance, { compData: this.compData ? this.compData.questionPart : "" });
+          Object.assign(componentRef.instance, { compData: this.compData ? this.compData.questionPart : "", type: this.compData.type });
 
           let AnswerPartComponentFactoryRef = this.container.createComponent(AnswerPartComponentFactory);
           Object.assign(AnswerPartComponentFactoryRef.instance, { key: this.compData.key });
@@ -66,8 +65,7 @@ export class QuestionComponent implements OnInit {
 
 
           let componentRef = this.container.createComponent(QuestionPartComponentFactory);
-
-          Object.assign(componentRef.instance, { compData: this.compData ? this.compData.questionPart : "" });
+          Object.assign(componentRef.instance, { compData: this.compData ? this.compData.questionPart : "", type: this.compData.type });
 
           let componentErrorRef = this.container.createComponent(ErrorPartComponentFactory);
           Object.assign(componentErrorRef.instance, { compData: this.compData ? this.compData.errorPart : "", key: this.compData.key });
@@ -86,6 +84,4 @@ export class QuestionComponent implements OnInit {
     }
 
   }
-
-
 }
