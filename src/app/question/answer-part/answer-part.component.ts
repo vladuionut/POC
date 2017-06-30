@@ -10,10 +10,9 @@ import { FormValidationService } from '../../form-validation.service';
   templateUrl: './answer-part.component.html',
   styleUrls: ['./answer-part.component.css'],
   encapsulation: ViewEncapsulation.None,
-  styles:[`app-answer-part {
-      width:83%;
-      display: inline-block;
-    }`],
+  host: {
+    'class' : 'col-md-10'
+  }
 })
 export class AnswerPartComponent implements OnInit {
 

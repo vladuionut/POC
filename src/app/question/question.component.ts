@@ -18,9 +18,9 @@ import { QuestionType } from "./question-type.enum";
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.css'],
   encapsulation: ViewEncapsulation.None,
-  styles:[`Question {
-      margin: 0 5px;
-    }`],
+  host: {
+    'class': 'form-horizontal row'
+  },
   entryComponents: [AnswerPartComponent, QuestionPartComponent, ErrorPartComponent]
 
 })
