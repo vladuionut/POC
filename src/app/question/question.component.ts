@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, ViewChild ,OnChanges,DoCheck, KeyValueDiffers } from '@angular/core';
+import { Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, ViewChild ,OnChanges,DoCheck, KeyValueDiffers, ViewEncapsulation } from '@angular/core';
 
 import { AnswerPartComponent } from './answer-part/answer-part.component';
 
@@ -13,6 +13,7 @@ import { FormGroup } from '@angular/forms';
 
 import { Question } from './question';
 import { QuestionType } from "./question-type.enum";
+
 @Component({
   selector: 'Question',
   templateUrl: './question.component.html',
@@ -55,7 +56,6 @@ export class QuestionComponent implements OnInit,OnChanges  {
           let AnswerPartComponentFactoryRef = this.container.createComponent(AnswerPartComponentFactory);
           Object.assign(AnswerPartComponentFactoryRef.instance, { key: this.compData.key });
 
-
           let componentErrorRef = this.container.createComponent(ErrorPartComponentFactory);
           Object.assign(componentErrorRef.instance, { compData: this.compData ? this.compData.errorPart : "", key: this.compData.key });
 
@@ -67,14 +67,11 @@ export class QuestionComponent implements OnInit,OnChanges  {
           let AnswerPartComponentFactoryRef = this.container.createComponent(AnswerPartComponentFactory);
           Object.assign(AnswerPartComponentFactoryRef.instance, { key: this.compData.key });
 
-
           let componentRef = this.container.createComponent(QuestionPartComponentFactory);
           Object.assign(componentRef.instance, { compData: this.compData ? this.compData.questionPart : "", type: this.compData.type });
 
           let componentErrorRef = this.container.createComponent(ErrorPartComponentFactory);
           Object.assign(componentErrorRef.instance, { compData: this.compData ? this.compData.errorPart : "", key: this.compData.key });
-
-
         }
         break;
       default: {
@@ -90,7 +87,7 @@ export class QuestionComponent implements OnInit,OnChanges  {
   }
   
   ngOnChanges(changes) {
-    console.log(changes);
+    //console.log(changes);
     // changes.prop contains the old and the new value...
   }
   /*ngDoCheck() {
