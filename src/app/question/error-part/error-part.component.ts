@@ -9,7 +9,10 @@ import { ErrorPart } from './error-part';
 @Component({
   selector: 'app-error-part',
   templateUrl: './error-part.component.html',
-  styleUrls: ['./error-part.component.css']
+  styleUrls: ['./error-part.component.css'],
+  host: {
+    'class': 'col-md-12'
+  }
 })
 export class ErrorPartComponent implements OnInit {
   @Input() key: string;
