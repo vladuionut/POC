@@ -1,6 +1,8 @@
  <div class="container">
     <h1 class="page-header">{{getDataFor('$$ITEM.H1$')}}</h1>
 
+	  <Question [compData]="getDataFor('QUE_ID_PHASE2_1')"></Question>
+	<hr>
   <dynamic-component [compId]="'COMP_ID_1'"></dynamic-component>
     
   <app-button  [compData]="getDataFor('BUTTON_1')"></app-button>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, ViewChild,ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, ViewChild ,OnChanges,DoCheck, KeyValueDiffers } from '@angular/core';
 
 import { AnswerPartComponent } from './answer-part/answer-part.component';
 
@@ -24,9 +24,13 @@ import { QuestionType } from "./question-type.enum";
   entryComponents: [AnswerPartComponent, QuestionPartComponent, ErrorPartComponent]
 
 })
-export class QuestionComponent implements OnInit {
+export class QuestionComponent implements OnInit,OnChanges  {
+  differ: any;
+  constructor(private differs: KeyValueDiffers,private _componentFactoryResolver: ComponentFactoryResolver, private formValidationService: FormValidationService, private viewContainerRef: ViewContainerRef) {
 
-  constructor(private _componentFactoryResolver: ComponentFactoryResolver, private formValidationService: FormValidationService, private viewContainerRef: ViewContainerRef) {
+
+		this.differ = differs.find({}).create(null);
+
     this.form = this.formValidationService.getFormGroup();
   }
 
@@ -84,4 +88,25 @@ export class QuestionComponent implements OnInit {
     }
 
   }
+  
+  ngOnChanges(changes) {
+    console.log(changes);
+    // changes.prop contains the old and the new value...
+  }
+  /*ngDoCheck() {
+		var changes = this.differ.diff(this.compData);
+		if(changes) {
+    
+      var needRepaint = false;
+			changes.forEachChangedItem(r => {
+        if (r.key == "type") {needRepaint = true};});
+        
+        if (needRepaint){
+          this.container.clear();
+          this.ngOnInit();
+}
+
+		} 
+	}*/
+
 }
