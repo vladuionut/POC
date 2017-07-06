@@ -9,11 +9,11 @@ type Validator = {
 
 export class Question {
     questionPart: QuestionPart;
-    errorPart :ErrorPart;
+    errorPart: ErrorPart;
     type: QuestionType;
     key: string;
     //https://angular.io/api/forms/Validators
-    validation :Validator[];
+    validation: Validator[];
 
     /*
        Validators.required,

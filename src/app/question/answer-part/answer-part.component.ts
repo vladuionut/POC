@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 
 import { FormGroup } from '@angular/forms';
 
@@ -8,7 +8,11 @@ import { FormValidationService } from '../../form-validation.service';
 @Component({
   selector: 'app-answer-part',
   templateUrl: './answer-part.component.html',
-  styleUrls: ['./answer-part.component.css']
+  styleUrls: ['./answer-part.component.css'],
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    'class' : 'col-md-10'
+  }
 })
 export class AnswerPartComponent implements OnInit {
 

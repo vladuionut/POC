@@ -21,17 +21,17 @@ export class ChartsComponent implements OnInit {
   public barChartLabels:string[];
   public barChartType:string;
   public barChartLegend:boolean;
- 
+
   public barChartData:any[];
- 
+
   // events
   public chartClicked(e:any):void {
     console.log(e);
   }
- 
+
   public chartHovered(e:any):void {
     console.log(e);
   }
- 
+
 
 }
