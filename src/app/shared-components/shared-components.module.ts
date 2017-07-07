@@ -9,6 +9,9 @@ import {DynamicComponent} from '../components/dynamic-component/dynamic-componen
 
 import { AotPhaseComponent } from '../components/aot-phase/aot-phase.component';
 
+import { CellComponent } from '../components/table/cell/cell.component';
+
+import { TableComponent } from '../components/table/table.component';
 import { QuestionPartComponent } from '../question/question-part/question-part.component';
 import { InternationlCalendarComponent } from '../widgets/internationl-calendar/internationl-calendar.component';
 import { ChartsComponent } from '../widgets/charts/charts.component';
@@ -28,6 +31,8 @@ import { ReactiveFormsModule }          from '@angular/forms';
     InternationlCalendarComponent,
     ButtonComponent,
     ChartsComponent,
+    TableComponent,
+    CellComponent,
     AotPhaseComponent],
   exports: [
     QuestionComponent,
@@ -36,6 +41,8 @@ import { ReactiveFormsModule }          from '@angular/forms';
     ErrorPartComponent,
     InternationlCalendarComponent,
     ButtonComponent,
+    CellComponent,
+    TableComponent,
     ChartsComponent,
     DynamicComponent,
     AotPhaseComponent]

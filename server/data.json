@@ -1,6 +1,6 @@
 {
    "phase1":{
-      "QUE_ID_1":{
+	 "QUE_ID_1":{
          "key":"QUE_ID_10001",
          "type":1,
          "questionPart":{
@@ -15172,8 +15172,171 @@
          "buttonText":"Submit Form",
          "actionType":"submit",
          "actionValue":""
+      },
+      "BUTTON_3":{
+         "buttonText":"Navigate to next phase",
+         "actionType":"navigate",
+         "actionValue":"phase5"
       }
    },
+   "phase5":{
+     "TABLE_ID_1":{
+	  "settings":{
+	  "id":{
+	  "type":"text"
+	  },
+	  "name":{
+	  "type":"text"
+	  }
+	  },
+	  "data":[
+	  {
+        "id": 1,
+        "name": "Mercury",
+        "cost": 277000000,
+        "first_flight": "September 9, 1959",
+        "status": "Complete"
+    },
+    {
+        "id": 2,
+        "name": "Gemini",
+        "cost": 1300000000,
+        "first_flight": "April 8, 1964",
+        "status": "Complete"
+    },
+    {
+        "id": 3,
+        "name": "Apollo",
+        "cost": 25400000000,
+        "first_flight": "February 26, 1966",
+        "status": "Complete"
+    },
+    {
+        "id": 4,
+        "name": "Skylab",
+        "launch": "May 14, 1973",
+        "status": "Complete"
+    },
+    {
+        "id": 5,
+        "name": "Apollo-Soyuz",
+        "launch": "July 15, 1975",
+        "status": "Complete"
+    },
+    {
+        "id": 6,
+        "name": "Space Shuttle",
+        "total_cost": 196000000000,
+        "first_flight": "August 12, 1977",
+        "status": "Complete"
+    }]},
+	"TABLE_ID_2":{
+	  "settings":{
+	  "id":{
+	  "type":"text",
+	  "columnName":"ID"
+	  },
+	  "cost":{
+	  "type":"question",
+	  "columnName":"Enter Project Cost"
+	  }
+	  },
+	  "data":[
+	  {
+        "id": 1,
+        "name": "Mercury",
+        "cost": {
+         "key":"QUE_ID_TABLE_ID_2_10001",
+         "type":1,
+         "questionPart":{
+            "displayText":""
+         },
+         "errorPart":{
+            "required":"Cost is required.",
+            "min":"Cost > 0.",
+            "max":"Cost < 2 000 000."
+         },
+         "validation":[
+            {
+               "name":"required"
+            },
+            {
+               "name":"min",
+               "value":1000
+            },
+            {
+               "name":"max",
+               "value":2000000
+            }
+         ]
+      },
+        "first_flight": "September 9, 1959",
+        "status": "Complete"
+    },
+    {
+        "id": 2,
+        "name":"Gemini",
+        "cost": {
+         "key":"QUE_ID_TABLE_ID_2_10002",
+         "type":1,
+         "questionPart":{
+            "displayText":""
+         },
+        "errorPart":{
+            "required":"Cost is required.",
+            "min":"Cost > 0.",
+            "max":"Cost < 2 000 000."
+         },
+         "validation":[
+            {
+               "name":"required"
+            },
+            {
+               "name":"min",
+               "value":1000
+            },
+            {
+               "name":"max",
+               "value":2000000
+            }
+         ]
+      },
+        "first_flight": "April 8, 1964",
+        "status": "Complete"
+    }]},
+	"TABLE_ID_3":{
+	  "settings":{
+	  "id":{
+	  "type":"text",
+	  "columnName":"Comp ID"
+	  },
+	  "comp":{
+	  "type":"d-comp",
+	  "columnName":"Dynamic Component"
+	  }
+	  },
+	  "data":[
+	  {
+        "id": "COMP_ID_1",
+        "comp": "COMP_ID_1"
+    }, {
+        "id": "COMP_ID_2",
+        "comp": "COMP_ID_2"
+    }
+	]}	
+	,
+     
+	   "BUTTON_1":{
+         "buttonText":"Navigate to previous phase",
+         "actionType":"navigate",
+         "actionValue":"phase4"
+      },
+      "BUTTON_2":{
+         "buttonText":"Submit Form",
+         "actionType":"submit",
+         "actionValue":""
+      }
+     },
    "COMP_ID_1":{
       "QUE_ID_1":{
          "key":"QUE_ID_100055",
@@ -15187,5 +15350,8 @@
          "actionType":"navigate",
          "actionValue":"phase4"
       }
+   },
+      "COMP_ID_2":{
+      "$$ITEM.TITLE":"HELLO FROM DYNAMIC COMPONENT ID COMP_ID_2"
    }
 }

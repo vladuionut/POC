@@ -6,7 +6,6 @@ import { DataModelService } from './data-model.service';
 import { BroadcasterService } from './broadcaster.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormValidationService } from './form-validation.service';
-
 @NgModule({
   declarations: [
     AppComponent

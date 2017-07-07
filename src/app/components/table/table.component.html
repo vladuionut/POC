@@ -1,0 +1,13 @@
+<table class="table">
+    <caption *ngIf="caption">{{ caption }}</caption>
+    <thead>
+        <tr>
+            <th *ngFor="let key of keys">{{ columnName(key) }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let record of compData.data">
+            <td *ngFor="let key of keys"><Cell [data]="record[key]" [settings]="compData.settings[key]"></Cell></td>
+        </tr>
+    </tbody>
+</table>
