@@ -58,6 +58,28 @@ export class AppComponent implements OnInit {
 
   private createPhaseComponent(template: string, phaseId, phaseData) {
 
+
+
+    var isObject = function (item) {
+            return (item && typeof item === 'object' && !Array.isArray(item));
+          }
+          function mergeDeep(target, ...sources) {
+            if (!sources.length) return target;
+            const source = sources.shift();
+
+            if (isObject(target) && isObject(source)) {
+              for (const key in source) {
+                if (isObject(source[key])) {
+                  if (!target[key]) Object.assign(target, { [key]: {} });
+                  mergeDeep(target[key], source[key]);
+                } else {
+                  Object.assign(target, { [key]: source[key] });
+                }
+              }
+            }
+            return mergeDeep(target, ...sources);
+          }
+
     @Component({ template: template })
     class PhaseComponent {
       localDB: any = phaseData;
@@ -71,37 +93,21 @@ export class AppComponent implements OnInit {
         }
         return false;
       }
-      setData(){
-	  
-	  
-	    Object.assign(this.localDB, {"QUE_ID_999":{"questionPart":{"displayText":"ihi23232"}}});
-        //this.localDB['QUE_ID_999'].questionPart.displayText = "UPDATED THROUGH CHANGE DETECTION MECHANISM";
+      setData() {
+
+
+        Object.assign(this.localDB, { "QUE_ID_999": { "questionPart": { "displayText": "ihi23232" } } });
       }
       update() {
         this.dataModelService.getDataFromServer(phaseId).subscribe(data => {
-		
-debugger;
- var isObject =  function (item) {
-  return (item && typeof item === 'object' && !Array.isArray(item));
-}
-function mergeDeep(target, ...sources) {
-  if (!sources.length) return target;
-  const source = sources.shift();
-
-  if (isObject(target) && isObject(source)) {
-    for (const key in source) {
-      if (isObject(source[key])) {
-        if (!target[key]) Object.assign(target, { [key]: {} });
-        mergeDeep(target[key], source[key]);
-      } else {
-        Object.assign(target, { [key]: source[key] });
+          mergeDeep(this.localDB, data);
+          //Object.assign(this.localDB, data);
+        });
       }
-    }
-  }
-  return mergeDeep(target, ...sources);
-}
-mergeDeep(this.localDB,data);
-  //Object.assign(this.localDB, data);
+      partialUpdate(){
+        this.dataModelService.getDataFromServer('partialUpdate').subscribe(data => {
+          mergeDeep(this.localDB, data);
+          //Object.assign(this.localDB, data);
         });
       }
     }

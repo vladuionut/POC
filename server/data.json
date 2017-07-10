@@ -11,6 +11,7 @@
             "minlength":"Username must be at least 4 characters long.",
             "maxlength":"Username cannot be more than 24 characters long."
          },
+		 "readonly":false,
          "validation":[
             {
                "name":"required"
@@ -15353,5 +15354,13 @@
    },
       "COMP_ID_2":{
       "$$ITEM.TITLE":"HELLO FROM DYNAMIC COMPONENT ID COMP_ID_2"
-   }
+   },
+"partialUpdate":{
+	 "QUE_ID_1":{
+	  "readonly":true,
+	   "type":2
+	}
+  }
+
+
 }

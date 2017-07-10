@@ -54,7 +54,7 @@ export class QuestionComponent implements OnInit,OnChanges  {
           Object.assign(componentRef.instance, { compData: this.compData ? this.compData.questionPart : "", type: this.compData.type });
 
           let AnswerPartComponentFactoryRef = this.container.createComponent(AnswerPartComponentFactory);
-          Object.assign(AnswerPartComponentFactoryRef.instance, { key: this.compData.key });
+          Object.assign(AnswerPartComponentFactoryRef.instance, { key: this.compData.key , readonly: this.compData.readonly });
 
           let componentErrorRef = this.container.createComponent(ErrorPartComponentFactory);
           Object.assign(componentErrorRef.instance, { compData: this.compData ? this.compData.errorPart : "", key: this.compData.key });
@@ -65,7 +65,7 @@ export class QuestionComponent implements OnInit,OnChanges  {
       case QuestionType.Question2:
         {
           let AnswerPartComponentFactoryRef = this.container.createComponent(AnswerPartComponentFactory);
-          Object.assign(AnswerPartComponentFactoryRef.instance, { key: this.compData.key });
+          Object.assign(AnswerPartComponentFactoryRef.instance, { key: this.compData.key , readonly: this.compData.readonly });
 
           let componentRef = this.container.createComponent(QuestionPartComponentFactory);
           Object.assign(componentRef.instance, { compData: this.compData ? this.compData.questionPart : "", type: this.compData.type });
@@ -87,16 +87,16 @@ export class QuestionComponent implements OnInit,OnChanges  {
   }
   
   ngOnChanges(changes) {
-    //console.log(changes);
+    console.log(changes);
     // changes.prop contains the old and the new value...
   }
-  /*ngDoCheck() {
+  ngDoCheck() {
 		var changes = this.differ.diff(this.compData);
 		if(changes) {
     
       var needRepaint = false;
 			changes.forEachChangedItem(r => {
-        if (r.key == "type") {needRepaint = true};});
+        if (r.key == "type" || r.key == "readonly") {needRepaint = true};});
         
         if (needRepaint){
           this.container.clear();
@@ -104,6 +104,6 @@ export class QuestionComponent implements OnInit,OnChanges  {
 }
 
 		} 
-	}*/
+	}
 
 }

@@ -21,6 +21,7 @@ export class AnswerPartComponent implements OnInit {
   }
 
   @Input() key: string;
+  @Input() readonly: boolean;
   form: FormGroup;
 
   ngOnInit() {

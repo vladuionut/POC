@@ -12,6 +12,7 @@ export class Question {
     errorPart: ErrorPart;
     type: QuestionType;
     key: string;
+    readonly:boolean = false;
     //https://angular.io/api/forms/Validators
     validation: Validator[];
 
